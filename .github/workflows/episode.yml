@@ -1,0 +1,39 @@
+name: Episode Build
+on:
+  workflow_dispatch:
+    inputs:
+      episode:
+        description: Episode ID (e.g., book1_ch2)
+        required: true
+permissions:
+  contents: read # principle of least privilege
+concurrency:
+  group: episode-${{ github.ref }}-${{ github.event.inputs.episode }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+      - name: Install FFmpeg & mkvtoolnix
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg mkvtoolnix
+      - name: Install deps
+        run: pip install -r requirements.txt
+      - name: Export secrets to env
+        run: |
+          echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}" >> $GITHUB_ENV
+          echo "ELEVENLABS_API_KEY=${{ secrets.ELEVENLABS_API_KEY }}" >> $GITHUB_ENV
+          echo "ELEVENLABS_NARRATOR_VOICE_ID=${{ secrets.ELEVENLABS_NARRATOR_VOICE_ID }}" >> $GITHUB_ENV
+      - name: Build episode
+        run: make episode E=${{ github.event.inputs.episode }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: episode_${{ github.event.inputs.episode }}
+          path: build/${{ github.event.inputs.episode }}/

@@ -1,0 +1,37 @@
+meta:
+  episode: book1_ch2
+  n_images: 8
+  style_paragraph: >-
+    Late‑19th‑century Russian realism; cold northern light; muted palette; shallow
+    depth of field; soft film grain; painterly photorealism; 50mm lens; natural skin
+    texture.
+scenes:
+- id: sc1
+  location: "Monastery cell"
+  time: "Afternoon"
+  mood: "hushed, reverent"
+  beats:
+  - at: 0
+    summary: "Narrator sets the quiet tone of Zossima’s cell."
+    image_prompt: "dim cell, icon lamp glow, simple wooden furniture, Alyosha attentive near the door"
+  - at: 12
+    summary: "Ivan enters; intellectual reserve against sanctity."
+    image_prompt: "Alyosha glances to Ivan; cold daylight through small window; particles in air"
+- id: sc2
+  location: "Same"
+  time: "Later"
+  mood: "tense, polite"
+  beats:
+  - at: 30
+    summary: "Exchange sharpens; unspoken challenge."
+    image_prompt: "close two‑shot, shallow depth; Ivan’s jaw set, Alyosha calm but concerned"
+dialogue:
+- speaker: Narrator
+  line: "[Narration sample line…]"
+  emotion: "neutral-warm"
+- speaker: Ivan
+  line: "[Dialogue sample line…]"
+  emotion: "cool, clipped"
+- speaker: Alyosha
+  line: "[Dialogue sample line…]"
+  emotion: "gentle, steady"

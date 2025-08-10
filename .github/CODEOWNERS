@@ -1,0 +1,6 @@
+# Default owners for the repo
+* @My-World-Network-DEV
+# CI and workflows
+.github/ @My-World-Network-DEV
+# Python pipeline
+/src/ @My-World-Network-DEV
