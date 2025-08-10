@@ -1,0 +1,7 @@
+{
+ "narrator": { "voice_id": "${ELEVENLABS_NARRATOR_VOICE_ID}", "openai_voice": "alloy" },
+ "Alyosha": { "voice_id": "${ELEVENLABS_ALYOSHA_VOICE_ID}", "openai_voice": "verse" },
+ "Ivan": { "voice_id": "${ELEVENLABS_IVAN_VOICE_ID}", "openai_voice": "sage" },
+ "Dmitri": { "voice_id": "${ELEVENLABS_DMITRI_VOICE_ID}", "openai_voice": "alloy" },
+ "Fyodor": { "voice_id": "${ELEVENLABS_FYODOR_VOICE_ID}", "openai_voice": "ember" }
+}
